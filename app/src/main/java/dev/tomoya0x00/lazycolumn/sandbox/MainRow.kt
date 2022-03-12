@@ -15,12 +15,11 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun MainRow(
     data: DummyData,
-    modifier: Modifier = Modifier,
 ) {
-    Column(modifier = modifier) {
+    Column(modifier = rootModifier) {
         Text(
             text = data.id.toString(),
-            modifier = Modifier.padding(start = 8.dp)
+            modifier = textModifier
         )
 
         LazyRow {
@@ -30,9 +29,16 @@ fun MainRow(
             ) { url ->
                 MainItem(
                     url = url,
-                    modifier = Modifier.padding(start = 8.dp)
                 )
             }
         }
     }
+}
+
+private val rootModifier by lazy {
+    Modifier.padding(top = 8.dp)
+}
+
+private val textModifier by lazy {
+    Modifier.padding(start = 8.dp)
 }
