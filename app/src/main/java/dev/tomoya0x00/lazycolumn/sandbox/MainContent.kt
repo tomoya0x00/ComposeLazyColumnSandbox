@@ -2,6 +2,7 @@ package dev.tomoya0x00.lazycolumn.sandbox
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -12,17 +13,20 @@ import androidx.compose.ui.unit.dp
  */
 @Composable
 fun MainContent(
-    data: List<DummyData>
+    data: List<DummyData>,
+    lazyListState: LazyListState,
 ) {
-    LazyColumn {
+    LazyColumn(state = lazyListState) {
         items(
             items = data,
             key = { it.id }
         ) {
             MainRow(
                 data = it,
-                modifier = Modifier.padding(top = 8.dp),
+                modifier = rowModifier,
             )
         }
     }
 }
+
+private val rowModifier = Modifier.padding(top = 8.dp)
