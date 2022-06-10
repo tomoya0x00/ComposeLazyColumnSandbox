@@ -18,7 +18,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    MainContentA(data = dummy)
+                    MainContentB(data = dummy)
                 }
             }
         }
